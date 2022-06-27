@@ -15,14 +15,28 @@
         </tr>
       </tbody>
     </table>
+   
     <div class="state-container">
-      <span>{{ timer }} Second{{ timer !== 1 ? "s" : "" }} </span>
-      <span> {{ moves }} Move{{ moves !== 1 ? "s" : "" }} </span>
+    <span id="time"> {{ timer }} Second{{ timer !== 1 ? "s" : "" }} </span>
+      <span id="move"> {{ moves }} Move{{ moves !== 1 ? "s" : "" }} </span>
     </div>
+   
     <div v-if="isSolved">
-      <button @click="$emit('new-game')" class="new-game">
-        Submit Details
-      </button>
+
+    <form action="https://submit-form.com/3E0pt0pi">
+      <input
+    type="hidden"
+    name="_feedback.success.title"
+    value="Thanks for joining with us"
+  />
+     
+      <h2>Roll Number 
+        <input type="text" name="Roll Number" /></h2>
+ <input type="hidden" name="timer" id="time" value="" /> 
+ <input type="hidden" name="moves" id="move" value="" />
+      <button type="submit" :disabled="submitting" class="new-game">Submit Details</button>
+      </form>
+   
     </div>
     <a href="https://cloudcomputingclub.in" v-if="timer > 30 && !isSolved"
       >You can do it</a
@@ -41,7 +55,7 @@ import {
 } from "@/assets/board";
 
 const correctBoard = getBoard();
-
+ var time = document.getElementById(time);
 export default {
   data() {
     return {
@@ -96,6 +110,9 @@ export default {
         }
       }
     },
+    addData(){
+      console.warn("function is called")
+    }
   },
   components: {
     Tile,
