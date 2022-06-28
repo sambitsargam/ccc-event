@@ -30,6 +30,8 @@
     value="Thanks for joining with us"
   />
      
+      <h2>Name
+      <input type="text" required="required" name="Name" /></h2>
       <h2>Roll Number 
         <input type="text" required="required" name="Roll Number" /></h2>
  <input type="hidden" name="timer" id="time" v-model="timer"  value="" /> 
