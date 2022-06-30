@@ -33,7 +33,7 @@
       <h2>Name
       <input type="text" required="required" name="Name" /></h2>
       <h2>Roll Number 
-        <input type="text" required="required" name="Roll Number" /></h2>
+        <input type="text" required="required" name="Roll_Number" /></h2>
  <input type="hidden" name="timer" id="time" v-model="timer"  value="" /> 
  <input type="hidden" name="moves" id="move" v-model="moves" value="" />
       <button type="submit" :disabled="submitting" class="new-game">Submit Details</button>
