@@ -15,14 +15,11 @@
         </tr>
       </tbody>
     </table>
-   
     <div class="state-container">
-    <span id="time"> {{ timer }} Second{{ timer !== 1 ? "s" : "" }} </span>
-      <span id="move"> {{ moves }} Move{{ moves !== 1 ? "s" : "" }} </span>
+      <span>{{ timer }} Second{{ timer !== 1 ? "s" : "" }} </span>
+      <span> {{ moves }} Move{{ moves !== 1 ? "s" : "" }} </span>
     </div>
-   
     <div v-if="isSolved">
-
     <form action="https://submit-form.com/3E0pt0pi">
       <input
     type="hidden"
@@ -55,7 +52,9 @@ import {
   addPoints,
   swapPoints,
 } from "@/assets/board";
+
 const correctBoard = getBoard();
+
 export default {
   data() {
     return {
@@ -73,6 +72,7 @@ export default {
       for (let i = 0; i < 3; i++)
         for (let j = 0; j < 3; j++)
           if (this.board[i][j] !== correctBoard[i][j]) return false;
+
       return true;
     },
   },
@@ -86,7 +86,7 @@ export default {
       }, 1000);
     },
   },
- methods: {
+  methods: {
     onTileClicked(clickedTile) {
       if (this.isSolved || isSamePoint(clickedTile, this.blank)) return;
       const moves = [
@@ -109,7 +109,6 @@ export default {
       }
     },
   },
-    
   components: {
     Tile,
   },
