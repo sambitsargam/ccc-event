@@ -26,20 +26,17 @@
     name="_feedback.success.title"
     value="Thanks for joining with us"
   />
-     
+
       <h2>Name
       <input type="text" required="required" name="Name" /></h2>
       <h2>Roll Number 
         <input type="text" required="required" name="Roll_Number" /></h2>
- <input type="hidden" name="timer" id="time" v-model="timer"  value="" /> 
- <input type="hidden" name="moves" id="move" v-model="moves" value="" />
-      <button type="submit" :disabled="submitting" class="new-game">Submit Details</button>
+ <input type="hidden" name="timer"  v-model="timer"  /> 
+ <input type="hidden" name="moves"  v-model="moves" />
+      <button type="submit" class="new-game">Submit Details</button>
       </form>
    
     </div>
-    <a href="https://cloudcomputingclub.in" v-if="timer > 30 && !isSolved"
-      >You can do it</a
-    >
   </div>
 </template>
 
