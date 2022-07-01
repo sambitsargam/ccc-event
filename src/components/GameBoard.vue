@@ -109,10 +109,7 @@ export default {
       }
     },
   },
-    addData(){
-      console.warn("function is called")
-    }
-  },
+    
   components: {
     Tile,
   },
