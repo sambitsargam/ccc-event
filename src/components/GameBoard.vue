@@ -30,7 +30,7 @@
       <h2>Name
       <input type="text" required="required" name="Name" /></h2>
       <h2>Roll Number 
-        <input type="text" required="required" name="Roll_Number" /></h2>
+        <input type="number" required="required" name="Roll_Number" /></h2>
  <input type="hidden" name="timer"  v-model="timer"  /> 
  <input type="hidden" name="moves"  v-model="moves" />
       <button type="submit" class="new-game">Submit Details</button>
