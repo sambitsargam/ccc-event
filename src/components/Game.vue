@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import Tile from "@/components/Tile.vue";
+import Tile from "@/components/BoardTile.vue";
 import {
   getBoard,
   findBlank,
@@ -55,9 +55,7 @@ import {
   addPoints,
   swapPoints,
 } from "@/assets/board";
-
 const correctBoard = getBoard();
- var time = document.getElementById(time);
 export default {
   data() {
     return {
@@ -75,7 +73,6 @@ export default {
       for (let i = 0; i < 3; i++)
         for (let j = 0; j < 3; j++)
           if (this.board[i][j] !== correctBoard[i][j]) return false;
-
       return true;
     },
   },
@@ -89,10 +86,9 @@ export default {
       }, 1000);
     },
   },
-  methods: {
+ methods: {
     onTileClicked(clickedTile) {
       if (this.isSolved || isSamePoint(clickedTile, this.blank)) return;
-      this.gameStarts = true;
       const moves = [
         { x: 1, y: 0 },
         { x: -1, y: 0 },
@@ -105,13 +101,14 @@ export default {
         const point = addPoints(clickedTile, move);
         if (isSamePoint(point, this.blank)) {
           swapPoints(this.board, clickedTile, this.blank);
-          this.$set(this.board, this.board); // trigger change in board (triggers isSolved)
           this.blank = clickedTile;
           this.moves++;
+          this.gameStarts = true;
           break;
         }
       }
     },
+  },
     addData(){
       console.warn("function is called")
     }
