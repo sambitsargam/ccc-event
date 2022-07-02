@@ -155,6 +155,7 @@ a {
   border-radius: 4px;
   padding: 5px;
   width: 120px;
+  background-color: white;
 }
 
 .board-table {
