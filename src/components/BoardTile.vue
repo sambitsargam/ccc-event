@@ -34,12 +34,12 @@ export default {
 
 <style scoped>
 .tile {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   text-align: center;
-  font-size: 30px;
+  font-size: 32px;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 5.5px;
   background-color: var(--bg);
   cursor: pointer;
 }

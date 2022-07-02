@@ -34,11 +34,11 @@ body,
 }
 
 :root {
-  --dark: #111;
+  --dark: rgb(25, 24, 24);
   --bg-dark: #222;
   --bg: #333;
   --bg-light: #444;
-  --text: #ddd;
-  --solved: rgba(50, 255, 50, 0.2);
+  --text: rgb(253, 253, 253);
+  --solved: rgba(11, 212, 234, 0.2);
 }
 </style>

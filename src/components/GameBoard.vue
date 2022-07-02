@@ -1,6 +1,10 @@
 <template>
+  
   <div class="game-container">
-    <h1 class="title">CCC EVENT</h1>
+    <div id="appss">
+        <img src="../assets/logo.png">
+    </div>
+    <h1 class="title">PUZZLE GAME</h1>
     <table class="board-table" :class="{ solved: isSolved }">
       <tbody>
         <tr v-for="(row, rowIndex) in board" :key="rowIndex">
@@ -21,15 +25,15 @@
     </div>
     <div v-if="isSolved">
     <form action="https://submit-form.com/3E0pt0pi">
-      <input
+       <input
     type="hidden"
-    name="_feedback.success.title"
-    value="Thanks for joining with us"
+    name="_redirect"
+    value="https://leaderboard.ccc-game.tech"
   />
 
       <h2>Name
       <input type="text" required="required" name="Name" /></h2>
-      <h2>Roll Number 
+      <h2>Roll No 
         <input type="number" required="required" name="Roll_Number" /></h2>
  <input type="hidden" name="Time"  v-model="timer"  /> 
  <input type="hidden" name="Moves"  v-model="moves" />
@@ -37,7 +41,11 @@
       </form>
    
     </div>
+     <div class="club">
+  <h1>CLOUD COMPUTING CLUB</h1>
+</div>
   </div>
+ 
 </template>
 
 <script>
@@ -51,7 +59,6 @@ import {
 } from "@/assets/board";
 
 const correctBoard = getBoard();
-
 export default {
   data() {
     return {
@@ -129,6 +136,7 @@ a {
   color: var(--text);
 }
 
+
 .state-container {
   min-width: 250px;
   justify-content: space-around;
@@ -139,6 +147,14 @@ a {
   padding: 10px;
   font-size: 20px;
   box-shadow: 0.5px 0.5px 0.5px 0.5px var(--dark);
+}
+
+
+  img {
+  border: 2px solid rgb(80, 165, 225);
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
 }
 
 .board-table {
