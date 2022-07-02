@@ -154,7 +154,7 @@ a {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 150px;
+  width: 120px;
 }
 
 .board-table {
