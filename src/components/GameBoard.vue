@@ -1,8 +1,7 @@
 <template>
-  
   <div class="game-container">
     <div id="appss">
-        <img src="../assets/logo.png">
+      <img src="../assets/logo.png" />
     </div>
     <h1 class="title">PUZZLE GAME</h1>
     <table class="board-table" :class="{ solved: isSolved }">
@@ -24,31 +23,32 @@
       <span> {{ moves }} Move{{ moves !== 1 ? "s" : "" }} </span>
     </div>
     <div v-if="isSolved">
-    <form action="https://submit-form.com/3E0pt0pi">
-       <input
-    type="hidden"
-    name="_redirect"
-    value="https://leaderboard.ccc-game.tech"
-  />
+      <form id="sub" method="POST">
+        <input
+          type="hidden"
+          name="_redirect"
+          value="https://leaderboard.ccc-game.tech"
+        />
 
-      <h2>Name
-      <input type="text" required="required" name="Name" /></h2>
-      <h2>Roll No 
-        <input type="number" required="required" name="Roll_Number" /></h2>
- <input type="hidden" name="Time"  v-model="timer"  /> 
- <input type="hidden" name="Moves"  v-model="moves" />
-      <button type="submit" class="new-game">Submit Details</button>
+        <h2>
+          Name <input type="text" required="required" id="name" name="Name" />
+        </h2>
+        <input type="hidden" name="Time" id="times" v-model="timer" />
+        <input type="hidden" name="Moves" id="move" v-model="moves" />
+        <button type="submit" class="new-game">Submit Details</button>
       </form>
-   
     </div>
-     <div class="club">
-  <h1>CLOUD COMPUTING CLUB</h1>
-</div>
+    <div class="club">
+      <h1>CLOUD COMPUTING CLUB</h1>
+    </div>
   </div>
- 
 </template>
+<script src="script.js"></script>
 
-<script>
+<script type="module">
+ import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
+
 import Tile from "@/components/BoardTile.vue";
 import {
   getBoard,
@@ -117,6 +117,33 @@ export default {
     Tile,
   },
 };
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAL1GT9hn1KTG6kWkYMz29ozKqWLuKYva8",
+  authDomain: "cccc-a6781.firebaseapp.com",
+  projectId: "cccc-a6781",
+  storageBucket: "cccc-a6781.appspot.com",
+  databaseURL: "https://cccc-a6781-default-rtdb.firebaseio.com/",
+  messagingSenderId: "144808643202",
+  appId: "1:144808643202:web:46ec1d8763926521f0c29b",
+};
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+document.getElementById("sub").addEventListener("submit", function (e) {
+  e.preventDefault();
+  set(ref(db, "users/" + Math.random().toString(36).slice(2, 7)), {
+    name: document.getElementById("name").value,
+    move: document.getElementById("move").value,
+    time: document.getElementById("times").value,
+    submission: document.getElementById("displayDateTime").value,
+  });
+
+  alert(
+    'Congrats 🎉 Your data is collected!, Now Please click on the "Leaderboard" Button '
+  );
+  document.getElementById("sub").reset();
+});
 </script>
 
 <style scoped>
@@ -136,7 +163,6 @@ a {
   color: var(--text);
 }
 
-
 .state-container {
   min-width: 250px;
   justify-content: space-around;
@@ -149,8 +175,7 @@ a {
   box-shadow: 0.5px 0.5px 0.5px 0.5px var(--dark);
 }
 
-
- img {
+img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
