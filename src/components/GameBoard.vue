@@ -28,7 +28,7 @@
        <input
     type="hidden"
     name="_redirect"
-    value="https://cloudcomputingclub.in/"
+    value="https://cloudcomputingclub.co.in/"
   />
 
       <h2>Name
